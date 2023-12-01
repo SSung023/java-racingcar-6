@@ -3,7 +3,7 @@ package racingcar.service;
 import java.util.List;
 import racingcar.domain.Accelerator;
 import racingcar.domain.RaceCar;
-import racingcar.dto.ProgressDTO;
+import racingcar.dto.RoundProgress;
 
 public class RaceService {
     private final Accelerator accelerator;
@@ -18,8 +18,7 @@ public class RaceService {
         this.raceCars = raceCars;
     }
 
-    //TODO: tryCount도 클래스로 래핑
-    public List<ProgressDTO> playWholeRace(int tryCount) {
+    public List<RoundProgress> playRound() {
         return raceCars.stream()
                 .map(raceCar -> raceCar.playRound(accelerator))
                 .toList();

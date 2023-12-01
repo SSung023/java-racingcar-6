@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.dto.ProgressDTO;
+import racingcar.dto.RoundProgress;
 
 public class RaceCar {
     private String carName; //TODO: 클래스로 래핑
@@ -15,10 +15,10 @@ public class RaceCar {
         return new RaceCar(carName, movedDistance);
     }
 
-    public ProgressDTO playRound(Accelerator accelerator) {
+    public RoundProgress playRound(Accelerator accelerator) {
         if (accelerator.canMoveForward()) {
             movedDistance++;
         }
-        return new ProgressDTO(carName, movedDistance);
+        return new RoundProgress(carName, movedDistance);
     }
 }

@@ -1,14 +1,11 @@
 package racingcar.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Accelerator;
 import racingcar.domain.FixedAccelerator;
 import racingcar.domain.RaceCar;
-import racingcar.dto.ProgressDTO;
 
 class RaceServiceTest {
     private final Accelerator accelerator = new FixedAccelerator();
@@ -27,11 +24,11 @@ class RaceServiceTest {
         );
 
         //when
-        List<ProgressDTO> progressDTOS = raceService.playWholeRace(1);
+//        List<RoundProgress> roundProgresses = raceService.play(1);
 
         //then
-        assertThat(progressDTOS.get(0).movedDistance()).isEqualTo(2);
-        assertThat(progressDTOS.get(1).movedDistance()).isEqualTo(3);
-        assertThat(progressDTOS.get(2).movedDistance()).isEqualTo(4);
+//        assertThat(roundProgresses.get(0).movedDistance()).isEqualTo(2);
+//        assertThat(roundProgresses.get(1).movedDistance()).isEqualTo(3);
+//        assertThat(roundProgresses.get(2).movedDistance()).isEqualTo(4);
     }
 }

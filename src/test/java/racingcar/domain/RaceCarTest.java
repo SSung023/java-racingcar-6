@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.dto.ProgressDTO;
+import racingcar.dto.RoundProgress;
 
 class RaceCarTest {
     private final Accelerator accelerator = new FixedAccelerator();
@@ -16,10 +16,10 @@ class RaceCarTest {
         RaceCar car = RaceCar.create("racer", 0);
 
         //when
-        ProgressDTO progressDTO = car.playRound(accelerator);
+        RoundProgress roundProgress = car.playRound(accelerator);
 
         //then
-        assertThat(progressDTO.movedDistance()).isEqualTo(1);
-        assertThat(progressDTO.carName()).isEqualTo("racer");
+        assertThat(roundProgress.movedDistance()).isEqualTo(1);
+        assertThat(roundProgress.carName()).isEqualTo("racer");
     }
 }

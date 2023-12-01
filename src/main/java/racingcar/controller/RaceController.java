@@ -1,7 +1,8 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.dto.ProgressDTO;
+import racingcar.domain.RaceCar;
+import racingcar.dto.RoundProgress;
 import racingcar.service.RaceService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -20,7 +21,7 @@ public class RaceController {
 
     public void run() {
         getRaceInfo();
-        playWholeRace();
+        playWholeRace(2);
         getRaceResults();
     }
 
@@ -35,14 +36,25 @@ public class RaceController {
 
     }
 
-    public void playWholeRace() {
+    public void playWholeRace(int tryCount) {
         //TODO: 실행 결과 헤더 출력
 
+        //TODO: temp 코드이므로 제거 필요
+        raceService.initRaceCars(
+                List.of(
+                        RaceCar.create("car1", 1),
+                        RaceCar.create("car2", 2),
+                        RaceCar.create("car3", 3)
+                )
+        );
+
         //TODO: 각 라운드를 시도 횟수만큼 실행
-        List<ProgressDTO> progressDTOS = raceService.playWholeRace(2);
+        while (tryCount-- > 0) {
+            List<RoundProgress> roundProgresses = raceService.playRound();
 
-        //TODO: 각 라운드에 대한 정보 출력
-
+            //TODO: 각 라운드에 대한 정보 출력
+            outputView.printRoundProgress(roundProgresses);
+        }
     }
 
     public void getRaceResults() {
