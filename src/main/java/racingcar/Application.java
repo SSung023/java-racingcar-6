@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.controller.RaceController;
+import racingcar.domain.RandomAccelerator;
 import racingcar.service.RaceService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -8,7 +9,8 @@ import racingcar.view.OutputView;
 public class Application {
     public static void main(String[] args) {
         RaceController raceController = new RaceController(
-                new RaceService(), new OutputView(), new InputView()
+                new RaceService(new RandomAccelerator()),
+                new OutputView(), new InputView()
         );
         raceController.run();
     }

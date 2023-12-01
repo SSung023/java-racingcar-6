@@ -39,10 +39,10 @@ public class RaceController {
         //TODO: 실행 결과 헤더 출력
 
         //TODO: 각 라운드를 시도 횟수만큼 실행
-        List<ProgressDTO> progressDTOS = raceService.playWholeRace();
+        List<ProgressDTO> progressDTOS = raceService.playWholeRace(2);
 
         //TODO: 각 라운드에 대한 정보 출력
-        
+
     }
 
     public void getRaceResults() {
