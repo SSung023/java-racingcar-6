@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.dto.ProgressDTO;
 import racingcar.service.RaceService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -37,7 +39,10 @@ public class RaceController {
         //TODO: 실행 결과 헤더 출력
 
         //TODO: 각 라운드를 시도 횟수만큼 실행
+        List<ProgressDTO> progressDTOS = raceService.playWholeRace();
 
+        //TODO: 각 라운드에 대한 정보 출력
+        
     }
 
     public void getRaceResults() {
@@ -46,6 +51,6 @@ public class RaceController {
         //TODO: RaceService로부터 최종 우승자 전달
 
         //TODO: OutputView를 통해 우승자 정보 출력
-        
+
     }
 }
