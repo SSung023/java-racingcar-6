@@ -38,6 +38,7 @@ public class RaceController {
 
     public void playWholeRace(int tryCount) {
         //TODO: 실행 결과 헤더 출력
+        outputView.printResultHeader();
 
         //TODO: temp 코드이므로 제거 필요
         raceService.initRaceCars(

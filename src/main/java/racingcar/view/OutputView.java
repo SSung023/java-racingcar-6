@@ -2,6 +2,7 @@ package racingcar.view;
 
 import static racingcar.constants.Message.MOVED_BAR;
 import static racingcar.constants.Message.MOVE_PROGRESS;
+import static racingcar.constants.Message.RESULT_HEADER;
 
 import java.util.List;
 import racingcar.dto.RoundProgress;
@@ -27,5 +28,9 @@ public class OutputView {
 
     private String getMoveBar(int movedDistance) {
         return MOVED_BAR.getMessage().repeat(movedDistance);
+    }
+
+    public void printResultHeader() {
+        System.out.println(RESULT_HEADER.getMessage());
     }
 }
