@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import static racingcar.constants.Message.FINAL_WINNER;
 import static racingcar.constants.Message.MOVED_BAR;
 import static racingcar.constants.Message.MOVE_PROGRESS;
 import static racingcar.constants.Message.RESULT_HEADER;
@@ -32,5 +33,10 @@ public class OutputView {
 
     public void printResultHeader() {
         System.out.println(RESULT_HEADER.getMessage());
+    }
+
+    public void printFinalWinner(List<String> finalWinners) {
+        String winners = String.join(", ", finalWinners);
+        System.out.printf(FINAL_WINNER.getMessage(), winners);
     }
 }

@@ -37,33 +37,29 @@ public class RaceController {
     }
 
     public void playWholeRace(int tryCount) {
-        //TODO: 실행 결과 헤더 출력
         outputView.printResultHeader();
 
         //TODO: temp 코드이므로 제거 필요
         raceService.initRaceCars(
                 List.of(
                         RaceCar.create("car1", 1),
-                        RaceCar.create("car2", 2),
+                        RaceCar.create("car2", 3),
                         RaceCar.create("car3", 3)
                 )
         );
 
-        //TODO: 각 라운드를 시도 횟수만큼 실행
+        //TODO: tryCount를 클래스로 래핑 후, 해당 클래스 내의 메서드 호출할 것
         while (tryCount-- > 0) {
             List<RoundProgress> roundProgresses = raceService.playRound();
-
-            //TODO: 각 라운드에 대한 정보 출력
             outputView.printRoundProgress(roundProgresses);
         }
     }
 
     public void getRaceResults() {
-        //TODO: 최종 우승자 헤더 출력
-
         //TODO: RaceService로부터 최종 우승자 전달
+        List<String> finalWinners = raceService.getFinalWinner();
 
         //TODO: OutputView를 통해 우승자 정보 출력
-
+        outputView.printFinalWinner(finalWinners);
     }
 }

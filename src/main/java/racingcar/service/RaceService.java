@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.Comparator;
 import java.util.List;
 import racingcar.domain.Accelerator;
 import racingcar.domain.RaceCar;
@@ -22,5 +23,21 @@ public class RaceService {
         return raceCars.stream()
                 .map(raceCar -> raceCar.playRound(accelerator))
                 .toList();
+    }
+
+    public List<String> getFinalWinner() {
+        int maxMovedDistance = getMaxMovedDistance();
+
+        return raceCars.stream()
+                .filter(raceCar -> raceCar.getMovedDistance() == maxMovedDistance)
+                .map(RaceCar::getCarName)
+                .toList();
+    }
+
+    private int getMaxMovedDistance() {
+        return raceCars.stream()
+                .max(Comparator.comparingInt(RaceCar::getMovedDistance))
+                .map(RaceCar::getMovedDistance)
+                .orElseThrow(() -> new IllegalArgumentException(""));
     }
 }
