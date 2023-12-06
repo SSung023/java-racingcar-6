@@ -7,13 +7,13 @@ public class RaceCar implements Comparator<RaceCar> {
     private String carName; //TODO: 클래스로 래핑
     private int movedDistance; // TODO: 클래스로 래핑
 
-    public RaceCar(String carName, int movedDistance) {
+    public RaceCar(String carName) {
         this.carName = carName;
-        this.movedDistance = movedDistance;
+        this.movedDistance = 0;
     }
 
-    public static RaceCar create(String carName, int movedDistance) {
-        return new RaceCar(carName, movedDistance);
+    public static RaceCar create(String carName) {
+        return new RaceCar(carName);
     }
 
     public RoundProgress playRound(Accelerator accelerator) {

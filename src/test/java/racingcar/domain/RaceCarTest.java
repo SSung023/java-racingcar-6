@@ -13,7 +13,7 @@ class RaceCarTest {
     @DisplayName("한 라운드를 진행했을 때, 조건에 맞으면 한 칸 전진한 결과를 DTO로 반환한다")
     public void returnProgressDTO_when_codnitionMatched() {
         //given
-        RaceCar car = RaceCar.create("racer", 0);
+        RaceCar car = RaceCar.create("racer");
 
         //when
         RoundProgress roundProgress = car.playRound(accelerator);

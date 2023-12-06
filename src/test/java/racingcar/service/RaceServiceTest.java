@@ -20,9 +20,9 @@ class RaceServiceTest {
         //given
         raceService.initRaceCars(
                 List.of(
-                        RaceCar.create("car1", 1),
-                        RaceCar.create("car2", 2),
-                        RaceCar.create("car3", 3)
+                        RaceCar.create("car1"),
+                        RaceCar.create("car2"),
+                        RaceCar.create("car3")
                 )
         );
 
@@ -30,8 +30,8 @@ class RaceServiceTest {
         List<RoundProgress> roundProgresses = raceService.playRound();
 
         //then
-        assertThat(roundProgresses.get(0).movedDistance()).isEqualTo(2);
-        assertThat(roundProgresses.get(1).movedDistance()).isEqualTo(3);
-        assertThat(roundProgresses.get(2).movedDistance()).isEqualTo(4);
+        assertThat(roundProgresses.get(0).movedDistance()).isEqualTo(1);
+        assertThat(roundProgresses.get(1).movedDistance()).isEqualTo(1);
+        assertThat(roundProgresses.get(2).movedDistance()).isEqualTo(1);
     }
 }

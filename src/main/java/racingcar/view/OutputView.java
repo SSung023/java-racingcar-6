@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import static racingcar.constants.Message.ASK_CAR_NAME;
+import static racingcar.constants.Message.ASK_TRY_COUNT;
 import static racingcar.constants.Message.FINAL_WINNER;
 import static racingcar.constants.Message.MOVED_BAR;
 import static racingcar.constants.Message.MOVE_PROGRESS;
@@ -10,6 +12,13 @@ import racingcar.dto.RoundProgress;
 
 public class OutputView {
 
+    public void printAskRaceCar() {
+        System.out.println(ASK_CAR_NAME.getMessage());
+    }
+
+    public void printAskTryCount() {
+        System.out.println(ASK_TRY_COUNT.getMessage());
+    }
 
     public void printRoundProgress(List<RoundProgress> roundProgresses) {
         StringBuilder stringBuilder = new StringBuilder();
