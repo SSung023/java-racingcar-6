@@ -31,7 +31,7 @@ public class RaceController {
 
         raceService.initRaceCars(
                 raceCarNames.stream()
-                        .map(RaceCar::new)
+                        .map(RaceCar::create)
                         .toList()
         );
 

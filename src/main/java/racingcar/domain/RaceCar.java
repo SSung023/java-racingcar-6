@@ -1,38 +1,41 @@
 package racingcar.domain;
 
-import java.util.Comparator;
 import racingcar.dto.RoundProgress;
 
-public class RaceCar implements Comparator<RaceCar> {
-    private String carName; //TODO: 클래스로 래핑
-    private int movedDistance; // TODO: 클래스로 래핑
+public class RaceCar implements Comparable<RaceCar> {
+    private Name name;
+    private MovedDistance movedDistance;
 
-    public RaceCar(String carName) {
-        this.carName = carName;
-        this.movedDistance = 0;
+    public RaceCar(String name) {
+        this.name = Name.create(name);
+        this.movedDistance = new MovedDistance();
     }
 
-    public static RaceCar create(String carName) {
-        return new RaceCar(carName);
+    public static RaceCar create(String name) {
+        return new RaceCar(name);
     }
 
     public RoundProgress playRound(Accelerator accelerator) {
         if (accelerator.canMoveForward()) {
-            movedDistance++;
+            movedDistance.moveForward();
         }
-        return new RoundProgress(carName, movedDistance);
+        return new RoundProgress(name.getValue(), movedDistance.getValue());
     }
 
-    public String getCarName() {
-        return carName;
+    public boolean isMovedDistanceSame(int distance) {
+        return movedDistance.getValue() == distance;
+    }
+
+    public String getName() {
+        return name.getValue();
     }
 
     public int getMovedDistance() {
-        return movedDistance;
+        return movedDistance.getValue();
     }
 
     @Override
-    public int compare(RaceCar car1, RaceCar car2) {
-        return Integer.compare(car1.movedDistance, car2.movedDistance);
+    public int compareTo(RaceCar other) {
+        return Integer.compare(this.movedDistance.getValue(), other.movedDistance.getValue());
     }
 }

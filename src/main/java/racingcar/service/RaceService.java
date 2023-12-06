@@ -1,6 +1,6 @@
 package racingcar.service;
 
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
 import racingcar.domain.Accelerator;
 import racingcar.domain.RaceCar;
@@ -14,7 +14,6 @@ public class RaceService {
         this.accelerator = accelerator;
     }
 
-    //TODO: 매개변수로 이름만 들어올 수도 있음 or 일급컬렉션
     public void initRaceCars(List<RaceCar> raceCars) {
         this.raceCars = raceCars;
     }
@@ -29,15 +28,12 @@ public class RaceService {
         int maxMovedDistance = getMaxMovedDistance();
 
         return raceCars.stream()
-                .filter(raceCar -> raceCar.getMovedDistance() == maxMovedDistance)
-                .map(RaceCar::getCarName)
+                .filter(raceCar -> raceCar.isMovedDistanceSame(maxMovedDistance))
+                .map(RaceCar::getName)
                 .toList();
     }
 
     private int getMaxMovedDistance() {
-        return raceCars.stream()
-                .max(Comparator.comparingInt(RaceCar::getMovedDistance))
-                .map(RaceCar::getMovedDistance)
-                .orElseThrow(() -> new IllegalArgumentException(""));
+        return Collections.max(raceCars).getMovedDistance();
     }
 }
